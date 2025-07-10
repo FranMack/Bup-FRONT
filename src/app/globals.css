@@ -9,11 +9,10 @@
 }
 
 html {
-
   scroll-behavior: smooth;
 }
 
-body{
+body {
   overflow-x: hidden;
 }
 
@@ -28,10 +27,6 @@ body{
 .custom-hover {
   @apply shadow-[0_4px_20px_rgba(104,63,146,0.1)];
 }
-
-
-
-
 
 /* clases rotación cards*/
 
@@ -65,13 +60,6 @@ body{
   transition: transform 0.7s;
 }
 
-
-
-
-
-
-
-
 .backface-hidden {
   backface-visibility: hidden;
 }
@@ -87,10 +75,6 @@ body{
 .group:hover .group-hover\:rotate-y-180 {
   transform: rotateY(180deg);
 }
-
-
-
-
 
 /* clases rotación cards*/
 
@@ -114,14 +98,12 @@ body{
   }
 }
 
-
 .leftReveal {
   animation-name: leftReveal;
   animation-duration: 1s;
   animation-timing-function: linear;
   animation-fill-mode: both;
 }
-
 
 @keyframes leftReveal {
   from {
@@ -133,7 +115,6 @@ body{
     opacity: 1;
   }
 }
-
 
 @keyframes rotateInFade {
   0% {
@@ -149,7 +130,6 @@ body{
 .animate-rotate-in-fade {
   animation: rotateInFade 2s ease-out forwards;
 }
-
 
 .heroImageReveal {
   animation-name: heroImageReveal;
@@ -170,18 +150,13 @@ body{
   }
 }
 
-
-
-
 .saludoReveal {
   animation-name: saludoReveal;
   animation-duration: 1.5s;
   animation-timing-function: ease-in;
   animation-fill-mode: both;
-   animation-delay: 1s;
+  animation-delay: 1s;
 }
-
-
 
 @keyframes saludoReveal {
   from {
@@ -190,4 +165,18 @@ body{
   to {
     opacity: 1;
   }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(-10%);
+        animation-timing-function: cubic-bezier(0.8,0,1,1);
+    }
+    50% {
+        transform: none;
+        animation-timing-function: cubic-bezier(0,0,0.2,1);
+    }
+}
+.animate-jumping {
+    animation: bounce 1s infinite;
 }

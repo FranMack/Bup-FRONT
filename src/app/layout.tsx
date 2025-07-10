@@ -1,8 +1,16 @@
+import { AssistantChatContextProvider } from "@/context/assistantChat";
 import { MenuMobileContextProvider } from "@/context/mobileMenu.context";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { ToastContainer } from "react-toastify";
-import { Footer, MobileMenu, Navbar, WhatsUpButton } from "../features";
+import {
+  AssistantButton,
+  AssistantChat,
+  Footer,
+  MobileMenu,
+  Navbar,
+  WhatsUpButton,
+} from "../features";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -72,6 +80,10 @@ export default function RootLayout({
           <Navbar />
           <MobileMenu />
           <WhatsUpButton />
+          <AssistantChatContextProvider>
+            <AssistantButton />
+            <AssistantChat />
+          </AssistantChatContextProvider>
           <ToastContainer style={{ fontSize: "1rem" }} />
         </MenuMobileContextProvider>
         {children}

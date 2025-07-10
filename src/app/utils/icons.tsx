@@ -1,9 +1,9 @@
-interface PlayOptions {
+interface IconOptions {
   onClick?: () => void;
   color?: string;
 }
 
-export function FacebookIcon({ onClick, color = "#ffff" }: PlayOptions) {
+export function FacebookIcon({ onClick, color = "#ffff" }: IconOptions) {
   return (
     <svg
       onClick={onClick}
@@ -39,7 +39,7 @@ export function FacebookIcon({ onClick, color = "#ffff" }: PlayOptions) {
   );
 }
 
-export function InstagramIcon({ onClick, color = "#ffff" }: PlayOptions) {
+export function InstagramIcon({ onClick, color = "#ffff" }: IconOptions) {
   return (
     <svg
       onClick={onClick}
@@ -75,7 +75,7 @@ export function InstagramIcon({ onClick, color = "#ffff" }: PlayOptions) {
   );
 }
 
-export function LinkedinIcon({ onClick, color = "#ffff" }: PlayOptions) {
+export function LinkedinIcon({ onClick, color = "#ffff" }: IconOptions) {
   return (
     <svg
       onClick={onClick}
@@ -411,6 +411,32 @@ export function AdviceIcon({ color, className }: SolutionIconsProps) {
             <path d="M246.224,16.353c-40.061,0-72.537,23.385-72.537,52.233c0,15.512,9.399,29.437,24.309,39.004l-10.055,20.08 c-1.026,2.049-0.589,4.528,1.074,6.102c1.663,1.574,4.163,1.876,6.152,0.739l28.505-16.279c7.1,1.671,14.675,2.587,22.55,2.587 c40.063,0,72.538-23.386,72.538-52.233C318.761,39.738,286.286,16.353,246.224,16.353z"></path>{" "}
           </g>{" "}
         </g>{" "}
+      </g>
+    </svg>
+  );
+}
+
+export function CrossIcon({onClick}:IconOptions) {
+  return (
+    <svg 
+    onClick={onClick}
+    height="100%"
+    viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        {" "}
+        <path
+          d="M19 5L5 19M5.00001 5L19 19"
+          stroke="#000000"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></path>{" "}
       </g>
     </svg>
   );
