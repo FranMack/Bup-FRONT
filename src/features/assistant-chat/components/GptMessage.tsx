@@ -1,4 +1,3 @@
-
 //import Markdown from "react-markdown";
 
 interface Props {
@@ -12,7 +11,7 @@ export const GptMessage = ({ text }: Props) => {
         <div className="flex items-center justify-center h-10 w-10 rounded-full bg-primary text-white flex-shrink-0">
           B
         </div>
-        <div className="relative ml-3 text-xs bg-primary bg-opacity-25 pt-3 pb-2 px-4 shadow rounded-xl">
+        <div className="relative ml-3 text-xs bg-primary bg-opacity-25 pt-3 pb-2 px-4 shadow rounded-xl break-words max-w-[80%]">
           {text}
         </div>
       </div>

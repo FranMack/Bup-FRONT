@@ -14,7 +14,7 @@ interface MessageProps {
 
 const initialValue: MessageProps[] = [
   {
-    text: "Hola, soy tu asistente virtual, ¿ en que puedo ayudarte?",
+    text: "Hola, soy tu asistente virtual, ¿en que puedo ayudarte?",
     isGpt: true,
   },
 ];
@@ -84,51 +84,50 @@ export const AssistantChat = () => {
 
   return (
     <div className="h-full w-full flex justify-center">
-    <div
-  className={`pb-5 w-[90%] sm:w-[80%] md:w-[60%] lg:w-[25vw] h-[75vh] max-h-[600px] flex flex-col justify-between items-center bg-gray-200 rounded-xl fixed bottom-5 right-5 z-50 shadow-xl ${
-    assistantChat ? "translate-x-0" : "translate-x-[200vw]"
-  } transition-transform duration-700`}
->
-      <div className="w-full h-5 flex justify-end items-center pr-1">
-        <CrossIcon onClick={toggleAssistantChat} />
-      </div>
-      <div className="w-[85%] h-[75%] bg-white rounded-xl overflow-y-scroll ">
-        {messages.map((item, i) => {
-          if (item.isGpt) {
-            return <GptMessage key={i} text={item.text} />;
-          }
-          return <MyMessage key={i} text={item.text} />;
-        })}
-        <div ref={bottomRef}></div>
-      </div>
-      <div className="w-[85%] h-[10%] flex items-center justify-between">
-        <input
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" && !isLoading) {
-              e.preventDefault();
-              handlePost();
+      <div
+        className={`pb-5 w-[90%] sm:w-[80%] md:w-[60%] lg:w-[25vw] h-[75vh] max-h-[600px] flex flex-col justify-between items-center bg-gray-200 rounded-xl fixed bottom-5 right-5 z-50 shadow-xl ${
+          assistantChat ? "translate-x-0" : "translate-x-[200vw]"
+        } transition-transform duration-700`}
+      >
+        <div className="w-full h-5 flex justify-end items-center pr-1">
+          <CrossIcon onClick={toggleAssistantChat} />
+        </div>
+        <div className="w-[85%] h-[75%] bg-white rounded-xl overflow-y-scroll  overflow-x-hidden">
+          {messages.map((item, i) => {
+            if (item.isGpt) {
+              return <GptMessage key={i} text={item.text} />;
             }
-          }}
-          autoFocus
-          type="text"
-          placeholder="Escribe tu consulta"
-          className="h-full w-[75%] outline-none rounded-md pl-2 text-[0.8rem]"
-        />
-        <button
-          onClick={handlePost}
-          disabled={isLoading ? true : false}
-          className="text-white text-[0.9rem] bg-primary h-full px-2 rounded-md flex items-center"
-        >
-          {isLoading ? (
-            <BeatLoader color={"white"} size={10} speedMultiplier={0.4} />
-          ) : (
-            "Enviar"
-          )}
-        </button>
+            return <MyMessage key={i} text={item.text} />;
+          })}
+          <div ref={bottomRef}></div>
+        </div>
+        <div className="w-[85%] h-[10%] flex items-center justify-between">
+          <textarea
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey && !isLoading) {
+                e.preventDefault();
+                handlePost();
+              }
+            }}
+            placeholder="Escribe tu consulta"
+            rows={1}
+            className="resize-none w-[75%] max-h-32 h-full rounded-md px-2 py-2 text-[0.8rem] outline-none overflow-y-auto"
+          />
+          <button
+            onClick={handlePost}
+            disabled={isLoading ? true : false}
+            className="text-white text-[0.9rem] bg-primary h-full px-2 rounded-md flex items-center"
+          >
+            {isLoading ? (
+              <BeatLoader color={"white"} size={10} speedMultiplier={0.4} />
+            ) : (
+              "Enviar"
+            )}
+          </button>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
