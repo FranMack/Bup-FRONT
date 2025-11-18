@@ -19,24 +19,26 @@ const initialValue: MessageProps[] = [
   },
 ];
 
-const messagesInlocalStorage = sessionStorage.getItem("thread-messages");
-
-const init = messagesInlocalStorage
-  ? JSON.parse(messagesInlocalStorage)
-  : initialValue;
-
 export const AssistantChat = () => {
   const [message, setMessage] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [messages, setMessages] = useState<MessageProps[]>(init);
+  const [messages, setMessages] = useState<MessageProps[]>(initialValue);
 
   const { assistantChat, toggleAssistantChat } =
     useContext(AssistantChatContext);
 
-  const handlePost = async () => {
-    if (!message) {
-      return;
+  // ✅ cargar mensajes del sessionStorage SOLO en el cliente
+  useEffect(() => {
+    const stored = sessionStorage.getItem("thread-messages");
+
+    if (stored) {
+      setMessages(JSON.parse(stored));
     }
+  }, []);
+
+  const handlePost = async () => {
+    if (!message) return;
+
     setIsLoading(true);
     setMessages((prev) => [...prev, { text: message, isGpt: false }]);
     setMessage("");
@@ -52,11 +54,11 @@ export const AssistantChat = () => {
       JSON.stringify(messagesInSessionStorage)
     );
 
-    //TODO
     const gptResponse = await AssistantService.sendQuestion({
       userId: "123",
       question: message,
     });
+
     setMessages((prev) => [...prev, { text: gptResponse, isGpt: true }]);
 
     messagesInSessionStorage = JSON.parse(
@@ -81,7 +83,6 @@ export const AssistantChat = () => {
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
-
   return (
     <div className="h-full w-full flex justify-center">
       <div
