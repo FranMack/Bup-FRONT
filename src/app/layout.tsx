@@ -20,7 +20,6 @@ export const metadata: Metadata = {
   keywords:
     "tecnología empresarial, innovación tecnológica, automatización, transformación digital, consultoría tecnológica, soluciones tecnológicas, liderazgo empresarial, Business Up",
   robots: "index, follow",
-  themeColor: "#0070f3", // Ejemplo: color corporativo para navegadores
 
   // Open Graph Meta Tags
   openGraph: {
@@ -40,7 +39,6 @@ export const metadata: Metadata = {
     locale: "es_ES",
   },
 
-  // Twitter Card
   twitter: {
     card: "summary_large_image",
     title: "Business Up - Tecnología e Innovación para Líderes Visionarios",
@@ -58,9 +56,12 @@ export const metadata: Metadata = {
     { name: "Business Up", url: "https://business-up-landing.vercel.app/" },
   ],
 };
+
+// 👇 Acá va el themeColor ahora
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1.0,
+  themeColor: "#0070f3",
 };
 
 export default function RootLayout({
