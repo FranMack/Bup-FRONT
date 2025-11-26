@@ -1,7 +1,7 @@
 import { AssistantChatContextProvider } from "@/context/assistantChat";
 import { MenuMobileContextProvider } from "@/context/mobileMenu.context";
 import { Analytics } from "@vercel/analytics/next";
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { ToastContainer } from "react-toastify";
 import {
   AssistantButton,
@@ -14,18 +14,19 @@ import {
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Business Up - Tecnología e Innovación para Líderes Visionarios",
+  title: "Business Up - Tecnología e Innovación para Líderes Visionarios (Versión de prueba)",
   description:
-    "Impulsa el crecimiento empresarial con soluciones tecnológicas innovadoras. Automatizamos procesos y conectamos áreas para transformar tu negocio con resultados visibles.",
+    "Versión de prueba de Business Up. Esta instancia es solo para desarrollo y no debe indexarse.",
   keywords:
-    "tecnología empresarial, innovación tecnológica, automatización, transformación digital, consultoría tecnológica, soluciones tecnológicas, liderazgo empresarial, Business Up",
-  robots: "index, follow",
+    "prueba, desarrollo, no indexar, business up",
 
-  // Open Graph Meta Tags
+  // 🚫 Bloquea indexación TOTAL
+  robots: "noindex, nofollow",
+
   openGraph: {
-    title: "Business Up - Tecnología e Innovación para Líderes Visionarios",
+    title: "Business Up (Versión de prueba)",
     description:
-      "Lidera tu industria con Business Up. Convertimos inversiones tecnológicas en avances visibles y soluciones que transforman la gestión y operación de tu negocio.",
+      "Esta es la versión de prueba de Business Up. No debe indexarse.",
     images: [
       {
         url: "https://business-up-landing.vercel.app/favicon.png",
@@ -34,16 +35,15 @@ export const metadata: Metadata = {
         alt: "Logo Business Up",
       },
     ],
-    url: "https://business-up-landing.vercel.app/",
+    url: "https://business-up-landing.vercel.app",
     type: "website",
     locale: "es_ES",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Business Up - Tecnología e Innovación para Líderes Visionarios",
-    description:
-      "Automatiza procesos y conecta cada área de tu negocio con tecnología que funciona. Business Up, tu socio estratégico en innovación tecnológica.",
+    title: "Business Up (Versión de prueba)",
+    description: "Instancia no indexable para pruebas y desarrollo.",
     images: [
       {
         url: "https://business-up-landing.vercel.app/favicon.png",
@@ -53,15 +53,11 @@ export const metadata: Metadata = {
   },
 
   authors: [
-    { name: "Business Up", url: "https://business-up-landing.vercel.app/" },
+    {
+      name: "Business Up",
+      url: "https://business-up-landing.vercel.app",
+    },
   ],
-};
-
-// 👇 Acá va el themeColor ahora
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1.0,
-  themeColor: "#0070f3",
 };
 
 export default function RootLayout({
@@ -70,11 +66,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <head>
-        <link rel="icon" href="/favicon.png" />
-        <link rel="canonical" href="https://business-up-landing.vercel.app/" />
-      </head>
+<html lang="es" prefix="og: http://ogp.me/ns#">
+    
 
       <body className={`antialiased`}>
         <MenuMobileContextProvider>
