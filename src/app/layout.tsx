@@ -13,11 +13,19 @@ import {
 import "./globals.css";
 
 export const metadata: Metadata = {
+<<<<<<< HEAD
   title:
     "Business Up - Tecnología e Innovación para Líderes Visionarios (Versión de prueba)",
   description:
     "Versión de prueba de Business Up. Esta instancia es solo para desarrollo y no debe indexarse.",
   keywords: "prueba, desarrollo, no indexar, business up",
+=======
+  title: "Business Up - Tecnología e Innovación para Líderes Visionarios (Versión de prueba)",
+  description:
+    "Versión de prueba de Business Up. Esta instancia es solo para desarrollo y no debe indexarse.",
+  keywords:
+    "prueba, desarrollo, no indexar, business up",
+>>>>>>> 8a46f6044d3e9430696d40e2933bb4eb9421fd9e
 
   // 🚫 Bloquea indexación TOTAL
   robots: "noindex, nofollow",
